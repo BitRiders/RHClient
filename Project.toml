@@ -1,6 +1,6 @@
 name = "RHClient"
 uuid = "5a099233-690e-4980-908f-23971e54592d"
-authors = ["Chris Saenz <chrissaenz@psg-inc.net> and contributors"]
+authors = ["BitRiders <bit-riders@psg-inc.net> and contributors"]
 version = "0.1.0"
 
 [deps]
