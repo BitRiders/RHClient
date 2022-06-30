@@ -1,6 +1,6 @@
 name = "RHClient"
 uuid = "5a099233-690e-4980-908f-23971e54592d"
-authors = ["BitRiders <bit-riders@psg-inc.net> and contributors"]
+authors = ["Chris Saenz <chrissaenz@psg-inc.net> and contributors"]
 version = "0.1.0"
 
 [deps]
@@ -9,9 +9,9 @@ JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
 
 [compat]
-julia = "1"
-JSON = "0.21"
 HTTP = "1"
+JSON = "0.21"
+julia = "1"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

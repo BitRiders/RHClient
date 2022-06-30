@@ -18,9 +18,9 @@ uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
 
 [[HTTP]]
 deps = ["Base64", "CodecZlib", "Dates", "IniFile", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
-git-tree-sha1 = "84770c393369f4a5048b221ae2a8ec65a7f9ee16"
+git-tree-sha1 = "bd11d3220f89382f3116ed34c92badaa567239c9"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-version = "1.0.4"
+version = "1.0.5"
 
 [[IniFile]]
 git-tree-sha1 = "f550e6e32074c939295eb5ea6de31849ac2c9625"
