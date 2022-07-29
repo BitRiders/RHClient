@@ -1,11 +1,12 @@
 ```@meta
 CurrentModule = RHClient
+DocTestSetup = quote
+    using RHClient
 ```
 
 # RHClient
 
-Documentation for [RHClient](https://gitlab.com/my-username/RHClient.jl).
-
+Documentation for [RHClient](https://github.com/BitRiders/RHClient.jl).
 ```@index
 ```
 

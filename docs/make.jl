@@ -1,13 +1,14 @@
 using RHClient
 using Documenter
 
+push!(LOAD_PATH,"../src/")
+
 DocMeta.setdocmeta!(RHClient, :DocTestSetup, :(using RHClient); recursive=true)
 
 makedocs(;
     modules=[RHClient],
     authors="Chris Saenz <chrissaenz@psg-inc.net> and contributors",
-    repo="https://gitlab.com/my-username/RHClient.jl/blob/{commit}{path}#{line}",
-    sitename="RHClient.jl",
+    sitename="RHClient.jl Documentation",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://my-username.gitlab.io/RHClient.jl",
@@ -15,6 +16,6 @@ makedocs(;
         assets=String[],
     ),
     pages=[
-        "Home" => "index.md",
+        "Home" => "index.md"
     ],
 )
