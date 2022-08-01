@@ -6,21 +6,27 @@ using JSON
 using Logging
 
 ### defining client struct ###
+@doc """
+    rhClient(url::String)
+
+Constructor for the REST Harness client
+
+# Arguments
+- `url::String`: concatenation of REST Harness IP + Port
+"""
 struct rhClient
     url::String
 end
 
 ### method definitions ###
-"""
+@doc """
     create_path(c::rhClient, path::String, rc::Int64, return_value::String; 
         delay::Int64=0, headers::Any=nothing)
 
-Send a "POST" HTTP request with a specified path configuration to the REST Harness server.
-
-See also [create_paths](@ref).
+Send a "POST" HTTP request with a specified endpoint configuration to the REST Harness server.
 
 # Arguments
-- `path::String`: the name of the path.
+- `path::String`: the name of the endpoint.
 - `rc::Int64`: the return code used by REST Harness when the endpoint is accessed.
 - `return_value::String`: the content of the endpoint.
 - `delay::Int64=0`: number of seconds REST Harness waits before returning a response to a 
@@ -66,13 +72,14 @@ function create_path(c::rhClient, path::String, rc::Int64, return_value::String;
     end
 end
 
-"""
+@doc """
     create_paths(c::rhClient, path::Vector{Dict{String, Any}})
 
-Send a "POST" HTTP request with a collection of path configurations to the REST Harness 
+Send a "POST" HTTP request with a collection of endpoint configurations to the REST Harness 
     server.
-
-See also [create_path](@ref).
+    
+# Arguments
+- `path::Vector{Dict{String, Any}}`: a collection of endpoint configuraions.
 """
 function create_paths(c::rhClient, path::Vector{Dict{String, Any}})
 
@@ -113,15 +120,16 @@ function create_paths(c::rhClient, path::Vector{Dict{String, Any}})
     end
 end
 
-"""
+@doc """
     get_path(c::rhClient, path::String)
 
-Send a "GET" HTTP request to the REST Harness server and retrieve the path configuration.
+Send a "GET" HTTP request to the REST Harness server and retrieve the endpoint configuration.
 
-Return path configuration as a dictionary with `path` as the key and a dictionary of all 
+Return endpoint configuration as a dictionary with `path` as the key and a dictionary of all 
     other configurations as the value.
 
-See also [get_all](@ref).
+# Arguments
+- `path::String`: the name of the endpoint.
 """
 function get_path(c::rhClient, path::String)
     try
@@ -142,16 +150,14 @@ function get_path(c::rhClient, path::String)
     end
 end
 
-"""
+@doc """
     get_all(c::rhClient)
 
 Send a "GET" HTTP request to the REST Harness server and retrieve all of the currently 
-    stored path configurations.
+    stored endpoint configurations.
 
-Return the path configurations as a dictionary with `path` as the keys and a dictionary of
+Return the endpoint configurations as a dictionary with `path` as the keys and a dictionary of
     the all other configurations as the values.
-
-See also [get_path](@ref).
 """
 function get_all(c::rhClient)
     try
@@ -165,13 +171,19 @@ function get_all(c::rhClient)
     end
 end
 
-"""
+@doc """
     update_path(c::rhClient, path::String, rc::Int64, return_value::String; 
         delay::Int64=0, headers=nothing)
 
-Send a specified path configuration to the REST Harness server to update an existing path.
+Send a specified endpoint configuration to the REST Harness server to update an existing endpoint.
 
-See also [create_path](@ref).
+# Arguments
+- `path::String`: the name of the endpoint.
+- `rc::Int64`: the return code used by REST Harness when the endpoint is accessed.
+- `return_value::String`: the content of the endpoint.
+- `delay::Int64=0`: number of seconds REST Harness waits before returning a response to a 
+    "GET" request.
+- `headers::Any=nothing`: A dictionary containing headers to send with the "POST" request.
 """
 function update_path(c::rhClient, path::String, rc::Int64, return_value::String; 
         delay::Int64=0, headers=nothing)
@@ -180,13 +192,14 @@ function update_path(c::rhClient, path::String, rc::Int64, return_value::String;
     @info "Endpoint updated."
 end
 
-"""
+@doc """
     delete_path(c::rhClient, path::String)
 
-Send a "DELETE" HTTP request with a path name specified to delete it from the REST Harness
+Send a "DELETE" HTTP request with an endpoint name specified to delete it from the REST Harness
     server.
 
-See also [delete_paths](@ref).
+# Arguments
+- `path::String`: the name of the endpoint.
 """
 function delete_path(c::rhClient, path::String)
     try
@@ -201,15 +214,16 @@ function delete_path(c::rhClient, path::String)
     end
 end
 
-"""
+@doc """
     delete_paths(c::rhClient, path::String)
 
-Send a "DELETE" HTTP request to delete all path configurations from the REST Harness 
+Send a "DELETE" HTTP request to delete all endpoint configurations from the REST Harness 
     server.
 
-See also [delete_path](@ref).
+# Arguments
+- `path::Vector{Dict{String, Any}}`: a collection of endpoint configuraions.
 """
-function delete_paths(c, paths)
+function delete_paths(c::rhClient, paths::Any)
     @info "
     Paths sent to be deleted:
     $(paths)"
