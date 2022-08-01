@@ -8,7 +8,7 @@ DocMeta.setdocmeta!(RHClient, :DocTestSetup, :(using RHClient); recursive=true)
 makedocs(;
     modules=[RHClient],
     authors="Chris Saenz <chrissaenz@psg-inc.net> and contributors",
-    sitename="RHClient.jl Documentation",
+    sitename="RHClient.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
         canonical="https://my-username.gitlab.io/RHClient.jl",
